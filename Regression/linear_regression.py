@@ -19,8 +19,8 @@ class LinearRegression:
             dw = (1 / n_samples) + np.dot(X.T, (y_pred - y))     # partial derivation of the loss function tends to this. (There is also a constant 2, which is ignored because it gets absorbed into the learning rate ahead.)
             db = (1 / n_samples) + np.sum(y_pred - y)       # partial derivation of bias tends to this.
 
-            self.weights = self.weights - self.lr * dw
-            self.bias = self.bias - self.lr * db
+            self.weights -= self.lr * dw
+            self.bias -= self.lr * db
 
     def predict(self, X):
         y_pred = np.dot(X, self.weights) + self.bias
